@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            width: 20rem;
+           display: flex;
+           flex-direction: column;
+           position: absolute;
+           top: 10%;
+           left: 40%;
+            
+        }
+        
+        .telugu,.english,.it,.math,.phy,.che,.phylab,.chelab,.itlab{
+            display: flex;
+            gap: 7rem;
+            justify-content: center;
+            align-items: center;
+            
+                
+        
+        }
+        
+        
+        
+        h3{
+            min-width: 4rem;
+        }
+        
+        #result{
+            font-size: 1.4rem;
+        }
+        
+        .btn{
+            width: 10rem;
+            font-size: 1.5rem;
+        }
+
+        @media screen and (min-width:427px){
+.container{
+    position: absolute;
+    top: 20%;
+    left: 13%;
+}
+       }
+
+       @media screen and (max-width:420px){
+        .container{
+            position: absolute;
+            top: 10%;
+           
+        }
+               }
+       
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="telugu" onchange="getselectedvaluetel()">
+            <h3>telugu</h3>
+            <select id="telugu1">
+                <option value="10" selected>EX</option>
+                <option value="9">A</option>
+                <option value="8">B</option>
+                <option value="7">C</option>
+                <option value="6">D</option>
+                <option value="5">E</option>
+            </select>
+        </div>
+
+        <div class="english" onchange="getselectedvalueeng()">
+            <h3>english</h3>
+            <select id="english1">
+                <option value="10" selected>EX</option>
+                <option value="9">A</option>
+                <option value="8">B</option>
+                <option value="7">C</option>
+                <option value="6">D</option>
+                <option value="5">E</option>
+               
+            </select>
+        </div>
+
+        <div class="it" onchange="getselectedvalueit()">
+            <h3>IT</h3>
+            <select id="it1">
+                <option value="10" selected>EX</option>
+                <option value="9">A</option>
+                <option value="8">B</option>
+                <option value="7">C</option>
+                <option value="6">D</option>
+                <option value="5">E</option>
+                
+            </select>
+        </div>
+
+            <div class="math" onchange="getselectedvaluemath()">
+                <h3>Math</h3>
+                <select id="math1">
+                    <option value="10" selected>EX</option>
+                    <option value="9">A</option>
+                    <option value="8">B</option>
+                    <option value="7">C</option>
+                    <option value="6">D</option>
+                    <option value="5">E</option>
+                    
+                </select>
+            </div>
+                <div class="phy" onchange="getselectedvaluephy()">
+                    <h3>phy</h3>
+                    <select id="phy1">
+                        <option value="10" selected>EX</option>
+                        <option value="9">A</option>
+                        <option value="8">B</option>
+                        <option value="7">C</option>
+                        <option value="6">D</option>
+                        <option value="5">E</option>
+                        
+                    </select>
+                </div>
+
+                    <div class="che" onchange="getselectedvalueche()">
+                        <h3>che</h3>
+                        <select id="che1">
+                            <option value="10" selected>EX</option>
+                            <option value="9">A</option>
+                            <option value="8">B</option>
+                            <option value="7">C</option>
+                            <option value="6">D</option>
+                            <option value="5">E</option>
+                            
+                        </select>
+                    </div>
+
+                        <div class="phylab" onchange="getselectedvaluephylab()">
+                            <h3>phylab</h3>
+                            <select id="phylab1">
+                                <option value="10" selected>EX</option>
+                                <option value="9">A</option>
+                                <option value="8">B</option>
+                                <option value="7">C</option>
+                                <option value="6">D</option>
+                                <option value="5">E</option>
+                                
+                            </select>
+                        </div>
+
+                            <div class="chelab" onchange="getselectedvaluechelab()">
+                                <h3>chelab</h3>
+                                <select id="chelab1">
+                                    <option value="10" selected>EX</option>
+                                    <option value="9">A</option>
+                                    <option value="8">B</option>
+                                    <option value="7">C</option>
+                                    <option value="6">D</option>
+                                    <option value="5">E</option>
+                                    
+                                </select>
+                            </div>
+
+                                <div class="itlab" onchange="getselectedvalueitlab()">
+                                    <h3>ITlab</h3>
+                                    <select id="itlab1">
+                                        <option value="10" selected>EX</option>
+                                        <option value="9">A</option>
+                                        <option value="8">B</option>
+                                        <option value="7">C</option>
+                                        <option value="6">D</option>
+                                        <option value="5">E</option>
+                                        
+                                    </select>
+                                </div>
+
+            <div id="result">
+                <p>the sgpa you secured: </p>
+            </div>
+
+            <div id="resmot">
+                <p></p>
+            </div>
+            <button onclick="getdata()" class="btn">get result</button> 
+    </div>
+
+    
+    <script>
+
+
+
+
+        function getselectedvaluetel(){
+            var value=document.getElementById('telugu1').value
+            grade=value*3
+            localStorage.setItem('telugu',grade)
+          
+        }
+        
+        function getselectedvalueeng(){
+            var value=document.getElementById('english1').value
+            grade=value*4
+            localStorage.setItem('english',grade)
+          
+        }
+        
+        function getselectedvalueit(){
+            var value=document.getElementById('it1').value
+             grade=value*2
+             localStorage.setItem('it',grade)
+        
+          
+        }
+        
+        function getselectedvaluemath(){
+            var value=document.getElementById('math1').value
+             grade=value*5
+             localStorage.setItem('math',grade)
+        
+          
+        }
+        
+        function getselectedvaluephy(){
+            var value=document.getElementById('phy1').value
+             grade=value*4
+             localStorage.setItem('phy',grade)
+        
+          
+        }
+        
+        function getselectedvalueche(){
+            var value=document.getElementById('che1').value
+             grade=value*4
+             localStorage.setItem('che',grade)
+        
+          
+        }
+        
+        function getselectedvaluephylab(){
+            var value=document.getElementById('phylab1').value
+             grade=value*1
+             localStorage.setItem('phylab',grade)
+        
+          
+        }
+        
+        function getselectedvaluechelab(){
+            var value=document.getElementById('chelab1').value
+             grade=value*1
+             localStorage.setItem('chelab',grade)
+        
+          
+        }
+        
+        function getselectedvalueitlab(){
+            var value=document.getElementById('itlab1').value
+             grade=value*1
+             localStorage.setItem('itlab',grade)
+        
+          
+        }
+        
+        getselectedvaluetel()
+        getselectedvalueeng()
+        getselectedvalueit()
+        getselectedvaluemath()
+        getselectedvaluephy()
+        getselectedvalueche()
+        getselectedvaluephylab()
+        getselectedvaluechelab()
+        getselectedvalueitlab()
+        
+        
+        function getdata(){
+             telugudata=localStorage.getItem('telugu')
+             englishdata=localStorage.getItem('english')
+             itdata=localStorage.getItem('it')
+             mathdata=localStorage.getItem('math')
+             phydata=localStorage.getItem('phy')
+             chedata=localStorage.getItem('che')
+             phylabdata=localStorage.getItem('phylab')
+             chelabdata=localStorage.getItem('chelab')
+             itlabdata=localStorage.getItem('itlab')
+        
+             telugudata1=parseInt(telugudata)
+             englishdata1=parseInt(englishdata)
+             itdata1=parseInt(itdata)
+             mathdata1=parseInt(mathdata)
+             phydata1=parseInt(phydata)
+             chedata1=parseInt(chedata)
+             phylabdata1=parseInt(phylabdata)
+             chelabdata1=parseInt(chelabdata)
+             itlabdata1=parseInt(itlabdata)
+        
+            
+          
+             let total=telugudata1+englishdata1+itdata1+mathdata1+phydata1+chedata1+phylabdata1+chelabdata1+itlabdata1
+             
+        
+             sgpa=total/25
+        
+        
+             let getdetails=document.getElementById('result')
+        
+             getdetails.innerText=`the sgpa you secured: ${sgpa}`
+
+
+             let resmot=document.getElementById('resmot')
+
+             if(sgpa>= 9.8 || sgpa>= 10){
+                resmot.innerText=`congratulations man u did an awesome job of getting ${sgpa} sgpa`
+             }
+
+             
+
+             
+        
+        
+        }
+        
+        
+                
+
+    </script>
+    
+</body>
+</html>

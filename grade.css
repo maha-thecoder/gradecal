@@ -1,0 +1,27 @@
+.container{
+    border: 1px solid black;
+    width: 20rem;
+    
+}
+
+.telugu,.english,.it,.math,.phy,.che,.phylab,.chelab,.itlab{
+    display: flex;
+    gap: 7rem;
+        
+
+}
+
+
+
+h3{
+    min-width: 4rem;
+}
+
+#result{
+    font-size: 1.4rem;
+}
+
+.btn{
+    width: 10rem;
+    font-size: 1.5rem;
+}
